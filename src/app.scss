@@ -1,0 +1,74 @@
+//Fuentes
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;700&display=swap");
+
+//------------------Variables
+
+//Fuentes
+$primary-font: "Dosis", sans-serif;
+
+//Colores
+$primary-color: #04adbf;
+$secondary-color: #0df205;
+$tertiary-color: #82f263;
+$contrast-color: #f2e205;
+$aux-dark-color: #0d0d0d;
+$aux-light-color: #fff;
+
+//Medidas
+$spacing: 1rem;
+
+//----------------------Globales
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+body {
+  font-size: 1.6rem;
+  font-family: $primary-font;
+}
+
+.button {
+  background-color: $tertiary-color;
+  color: $aux-dark-color;
+  border: none;
+  border-radius: 0.5rem;
+  display: block;
+  margin: $spacing * 2 auto;
+  width: 90%;
+  padding: $spacing/2;
+  font-family: $primary-font;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 0.1rem;
+  &--secondary {
+    background-color: $aux-dark-color;
+    color: $tertiary-color;
+    border: 1px solid $tertiary-color;
+  }
+}
+
+//---------------------Utilidades
+.active {
+    text-decoration: underline;
+}
+@mixin tablet {
+  @media (min-width: 769px) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (min-width: 480px) {
+    @content;
+  }
+}
+
+@import "./components/Cards/cards";
+@import "./components/SideBar/sidebar";
+@import "./components/FavBar/favBar";

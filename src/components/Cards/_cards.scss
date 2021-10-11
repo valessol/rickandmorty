@@ -1,0 +1,30 @@
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    
+    &__box {
+        margin: $spacing;
+        //border: 1px solid #e1e1e1;
+        width: 30rem;
+        //overflow: hidden;
+    }
+    &__body {
+        background-color: $aux-dark-color;
+        padding: $spacing;
+    }
+    &__title {
+        font-weight: 700;
+        font-size: 3rem;
+        color: $primary-color;
+        text-align: center;
+    }
+    &__text {
+        color: $aux-light-color;
+    }
+    @include tablet {
+        width: 80%;
+        margin-left: 20%;
+    }
+}

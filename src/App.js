@@ -1,25 +1,47 @@
-import logo from './logo.svg';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import FavBar from './components/FavBar/FavBar';
+import CardContainer from './containers/Cards/CardContainer';
+import SideBarContainer from './containers/SideBar/SideBarContainer';
+import { useState } from 'react'
+import SearchBar from './components/SearchBar/SearchBar';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [favorites, setFavorites] = useState([]);
+    const width = window.screen.width
+
+    
+
+    return (
+        <BrowserRouter>
+            <SideBarContainer width= {width}/>
+            <FavBar 
+                favorites = {favorites}
+            />
+            <SearchBar />
+            <Switch>
+                <Route exact path='/'>
+                    <CardContainer 
+                      favorites = {favorites}
+                      setFavorites = {setFavorites}
+                    />
+                </Route>
+                <Route exact path='/personajes'>
+                    <h1>Personajes</h1>
+                    <CardContainer path="characters" />
+                </Route>
+                <Route exact path='/episodios'>
+                    <h1>Episodios</h1>
+                    {/* <CardContainer path='episode' /> */}
+                </Route>
+                <Route exact path='/lugares'>
+                    <h1>Lugares</h1>
+                    {/* <CardContainer path="location" /> */}
+                </Route>
+            </Switch>
+        </BrowserRouter>
+      
+    );
 }
 
 export default App;

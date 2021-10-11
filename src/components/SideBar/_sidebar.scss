@@ -1,0 +1,30 @@
+.sidebar {
+    display: none;
+    
+    a {
+        display: block;
+        text-align: left;
+        font-size: 2rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 700;
+        color: $aux-dark-color;
+        margin: $spacing 0;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    @include tablet {
+        display: block;
+        padding: $spacing*2;
+        padding-top: $spacing*5;
+        background-color: $tertiary-color;
+        width: 20%;
+        height: 100vh;
+        position: fixed;
+    }
+}
+svg {
+    font-size: 3rem;
+    margin: $spacing;
+}

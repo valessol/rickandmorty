@@ -1,0 +1,1 @@
+export const logo = {url: './logo400.png'};
