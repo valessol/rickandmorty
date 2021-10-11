@@ -8,9 +8,13 @@ import './App.css';
 
 function App() {
     const [favorites, setFavorites] = useState([]);
+    const [search, setSearch] = useState('');
     const width = window.screen.width
 
-    
+    const handleInput = (e) => {
+        console.log(e.target.value);
+        if (e.target.value.length >=3) setSearch(search);
+    }
 
     return (
         <BrowserRouter>
@@ -18,26 +22,27 @@ function App() {
             <FavBar 
                 favorites = {favorites}
             />
-            <SearchBar />
+            <SearchBar handleInput={handleInput}/>
             <Switch>
                 <Route exact path='/'>
                     <CardContainer 
                       favorites = {favorites}
                       setFavorites = {setFavorites}
+                      search={search}
                     />
                 </Route>
-                <Route exact path='/personajes'>
+                {/* <Route exact path='/personajes'>
                     <h1>Personajes</h1>
                     <CardContainer path="characters" />
                 </Route>
                 <Route exact path='/episodios'>
                     <h1>Episodios</h1>
-                    {/* <CardContainer path='episode' /> */}
+                    {/* <CardContainer path='episode' />
                 </Route>
                 <Route exact path='/lugares'>
                     <h1>Lugares</h1>
-                    {/* <CardContainer path="location" /> */}
-                </Route>
+                    <CardContainer path="location" /> 
+                </Route> */}
             </Switch>
         </BrowserRouter>
       

@@ -6,9 +6,9 @@ const SideBar = () => {
     return (
         <nav className="sidebar">
             <Link to="/">Dashboard</Link>
-            <Link to="/personajes">Personajes</Link>
+            {/* <Link to="/personajes">Personajes</Link>
             <Link to="/episodios">Episodios</Link>
-            <Link to="/lugares">Lugares</Link>
+            <Link to="/lugares">Lugares</Link> */}
         </nav>
     )
 }

@@ -7,7 +7,8 @@
 
 
 // }
-import {data} from '../data/data'
+import {data} from '../data/data';
+import { setLocalStorage } from './storage';
 
 export const getData = async () => {
     // let location = [];
@@ -23,4 +24,4 @@ export const getData = async () => {
         resolve(data.characters.results)
     })
 }
-getData()
+
