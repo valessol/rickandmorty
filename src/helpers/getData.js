@@ -8,9 +8,9 @@
 
 // }
 import {data} from '../data/data';
-import { setLocalStorage } from './storage';
+import { getLocalStorage, setLocalStorage } from './storage';
 
-export const getData = async () => {
+const getData = async () => {
     // let location = [];
     // let episodes = [];
     return new Promise ((resolve, reject) => {
@@ -24,4 +24,20 @@ export const getData = async () => {
         resolve(data.characters.results)
     })
 }
+
+getData()
+    .then(res =>{
+        setLocalStorage('characters', JSON.stringify(res))
+    }) 
+    .catch(err=> err)
+
+export const localData = () => {
+    const JSONdata = getLocalStorage('characters');
+    const OBJdata = JSON.parse(JSONdata);
+    return OBJdata;
+}
+
+
+
+
 

@@ -2,7 +2,7 @@ import React from 'react'
 import CardComponent from './CardComponent'
 import '../../app.scss'
 
-const CardList = ({characters, handleFavorites, itemAdded}) => {
+const CardList = ({characters, favorites, setFavorites}) => {
     //console.log(character)
 
     return (
@@ -16,9 +16,10 @@ const CardList = ({characters, handleFavorites, itemAdded}) => {
                                 key={characters.id}
                                 >
                                     <CardComponent 
+                                    characters={characters}
+                                    favorites={favorites}
+                                    setFavorites={setFavorites}
                                     {...item} 
-                                    handleFavorites={handleFavorites} 
-                                    itemAdded={itemAdded}
                                     />
                                 </div>
                         )

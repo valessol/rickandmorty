@@ -11,7 +11,14 @@ const FavBar = ({favorites}) => {
                 <img src= {logo.url} alt='Rick and Morty Wiki' />
             </div>
             <div className="favorites">
-                <span>{favorites.length === 0 ? '' : favorites.length}
+                <span>
+                    {
+                        favorites 
+                            ? favorites.length === 0 
+                                ? '' 
+                                : favorites.length 
+                            : ''
+                    }
                     <BsSuitHeartFill />
                 </span>
             </div>

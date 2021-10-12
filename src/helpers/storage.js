@@ -10,10 +10,3 @@ export const getSessionStorage = (keyName) => sessionStorage.getItem(keyName);
 
 export const setSessionStorage = (keyName, value) =>
   sessionStorage.setItem(keyName, value);
-
-
-  //Convertir a JSON
-const aObj = (string) => JSON.parse(string);
-
-//Convertir a string
-const aString = (obj) => JSON.stringify(obj);

@@ -1,8 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Card} from 'react-bootstrap'
 import '../../app.scss'
 
-const CardComponent = ({id, image, name, episode, location, handleFavorites, itemAdded}) => {
+const CardComponent = ({characters, favorites, setFavorites, id, image, name, episode, location}) => {
+    const [itemAdded, setItemAdded] = useState (false);
+
+    const handleAddFavorites = (id) => {
+        setItemAdded(!itemAdded)
+        const fav = characters.find((item)=>item.id === id);
+        console.log(fav)
+        setFavorites([fav, ...favorites])
+    }
+
+    const handleRemoveFavorites = (id) => {
+        const fav = favorites.filter((item)=>item.id !== id);
+        setFavorites(fav)
+        setItemAdded(!itemAdded)
+    }
+    
     return (
         <Card>
             <Card.Img variant="top" src={image}/>
@@ -25,16 +40,23 @@ const CardComponent = ({id, image, name, episode, location, handleFavorites, ite
                         }
                 </Card.Text>
                 <Button className="button">Ver Detalle</Button>
-                <Button 
-                    className="button button--secondary" 
-                    onClick={()=> handleFavorites(id)}
-                >
-                        {
-                            itemAdded
-                            ? 'Quitar de Favoritos'
-                            : 'Agregar a Favoritos'
-                        } 
-                </Button>
+                {
+                    itemAdded
+                    ? (
+                        <Button 
+                            className="button button--secondary" 
+                            onClick={()=> handleAddFavorites(id)}
+                        >Quitar de favoritos
+                        </Button>
+                    ) 
+                    : (
+                        <Button 
+                            className="button button--secondary" 
+                            onClick={()=> handleRemoveFavorites(id)}
+                        >Agregar a favoritos
+                        </Button>
+                    )
+                }
             </Card.Body>
         </Card>
     )

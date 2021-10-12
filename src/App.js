@@ -16,6 +16,7 @@ function App() {
         if (e.target.value.length >=3) setSearch(search);
     }
 
+
     return (
         <BrowserRouter>
             <SideBarContainer width= {width}/>

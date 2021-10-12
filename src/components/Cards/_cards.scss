@@ -22,6 +22,8 @@
     }
     &__text {
         color: $aux-light-color;
+        font-size: 1.8rem;
+        text-align: center;
     }
     @include tablet {
         width: 80%;
