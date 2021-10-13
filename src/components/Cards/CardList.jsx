@@ -1,16 +1,33 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react'
+import { localData } from '../../helpers/getData';
 import CardComponent from './CardComponent'
 import '../../app.scss'
 
-const CardList = ({characters, favorites, setFavorites}) => {
-    //console.log(character)
+const CardList = ({favorites, setFavorites, search}) => {
+    const [characters, setCharacters] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(()=>{
+        setLoading(true);
+        
+        //Obtener datos del localStorage
+        const data = localData();
+        setCharacters(data);
+
+
+        setLoading(false);
+    }, [])
+
 //data y setData
 //loading y setloading
 //useeffect llamada a la api
     return (
-        <>
+        <section className="cardContainer">
             {//validadcion del loading
-                [ //characters &&
+                loading
+                ? <h2>Loading...</h2>
+                : [ 
+                    characters &&
                     characters.map((item) => {
                         return (
                                 <div 
@@ -31,7 +48,7 @@ const CardList = ({characters, favorites, setFavorites}) => {
                     })
                 ]
             }   
-        </>
+        </section>
     )
 }
 

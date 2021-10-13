@@ -1,6 +1,6 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import FavBar from './components/FavBar/FavBar';
-import CardContainer from './containers/Cards/CardContainer';
+import CardList from './components/Cards/CardList';
 import SideBarContainer from './containers/SideBar/SideBarContainer';
 import { useState } from 'react'
 import SearchBar from './components/SearchBar/SearchBar';
@@ -27,7 +27,7 @@ function App() {
             <SearchBar handleInput={handleInput}/>
             <Switch>
                 <Route exact path='/'>
-                    <CardContainer 
+                    <CardList 
                       favorites = {favorites}//ok
                       setFavorites = {setFavorites}//ok
                       search={search}
