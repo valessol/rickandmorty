@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { Button, Card} from 'react-bootstrap'
 import '../../app.scss'
 
-const CardComponent = ({characters, favorites, setFavorites, id, image, name, episode, location}) => {
-    const [itemAdded, setItemAdded] = useState (false);
+const CardComponent = ({characters, favorites, setFavorites, id, image, name, episode, location}) => { //+theme
+    const [itemAdded, setItemAdded] = useState (false);//ok
 
     const handleAddFavorites = (id) => {
         setItemAdded(!itemAdded)
@@ -41,19 +41,19 @@ const CardComponent = ({characters, favorites, setFavorites, id, image, name, ep
                 </Card.Text>
                 <Button className="button">Ver Detalle</Button>
                 {
-                    itemAdded
+                    !itemAdded
                     ? (
                         <Button 
                             className="button button--secondary" 
                             onClick={()=> handleAddFavorites(id)}
-                        >Quitar de favoritos
+                        >Agregar a favoritos
                         </Button>
                     ) 
                     : (
                         <Button 
                             className="button button--secondary" 
                             onClick={()=> handleRemoveFavorites(id)}
-                        >Agregar a favoritos
+                        >Quitar de favoritos
                         </Button>
                     )
                 }

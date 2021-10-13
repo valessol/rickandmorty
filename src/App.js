@@ -7,7 +7,8 @@ import SearchBar from './components/SearchBar/SearchBar';
 import './App.css';
 
 function App() {
-    const [favorites, setFavorites] = useState([]);
+    const [favorites, setFavorites] = useState([]);//ok
+    //theme y setTheme + handletheme
     const [search, setSearch] = useState('');
     const width = window.screen.width
 
@@ -27,9 +28,10 @@ function App() {
             <Switch>
                 <Route exact path='/'>
                     <CardContainer 
-                      favorites = {favorites}
-                      setFavorites = {setFavorites}
+                      favorites = {favorites}//ok
+                      setFavorites = {setFavorites}//ok
                       search={search}
+                      //theme
                     />
                 </Route>
                 {/* <Route exact path='/personajes'>
