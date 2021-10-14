@@ -71,16 +71,16 @@ const CardContainer = ({favorites, setFavorites, search}) => {
     //     // }  
     // }, [search])
 
-    useEffect(()=>{
-        setLoading(true);
+    // useEffect(()=>{
+    //     setLoading(true);
         
-        //Obtener datos del localStorage
-        const data = localData();
-        setCharacters(data);
+    //     //Obtener datos del localStorage
+    //     const data = localData();
+    //     setCharacters(data);
 
 
-        setLoading(false);
-    }, [])
+    //     setLoading(false);
+    // }, [])
 
     
 

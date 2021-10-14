@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useEffect} from 'react'
 import { BsList } from "react-icons/bs";
 import SideBar from '../../components/SideBar/SideBar';
 import '../../app.scss'

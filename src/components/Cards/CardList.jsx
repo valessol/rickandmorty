@@ -11,7 +11,7 @@ const CardList = ({ favorites, setFavorites}) => {
         setLoading(true);
         
         //Obtener datos del localStorage
-        const data = localData();
+        const data = localData('characters');
         setCharacters(data);
 
 
