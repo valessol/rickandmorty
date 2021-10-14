@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import { Button, Card} from 'react-bootstrap'
+import { BsSuitHeartFill } from 'react-icons/bs'
 import '../../app.scss'
 
 const CardComponent = ({characters, favorites, setFavorites, id, image, name, episode, location}) => { //+theme
-    const [itemAdded, setItemAdded] = useState (false);//ok
+    const [itemAdded, setItemAdded] = useState (false);
 
     const handleAddFavorites = (id) => {
         setItemAdded(!itemAdded)
-        const fav = characters.find((item)=>item.id === id);
-        console.log(fav)
-        setFavorites([fav, ...favorites])
+        const fav = characters.filter((item)=>item.id === id);
+        setFavorites([fav[0], ...favorites])
     }
 
     const handleRemoveFavorites = (id) => {
@@ -19,8 +19,15 @@ const CardComponent = ({characters, favorites, setFavorites, id, image, name, ep
     }
     
     return (
-        <Card>
-            <Card.Img variant="top" src={image}/>
+        <Card className="cardContainer__box">
+            <Card.Img variant="top" src={image} />
+            <BsSuitHeartFill 
+                className={
+                    !itemAdded
+                    ? "favIndicator"
+                    : "favIndicator favIndicator--active" 
+                } 
+            />
             <Card.Body className="cardContainer__body">
                 <Card.Title className="cardContainer__title">{name}</Card.Title>
                 <Card.Text 

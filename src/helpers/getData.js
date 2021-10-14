@@ -21,18 +21,26 @@ const getData = async () => {
         // })
         // console.log(location)
         // console.log(episodes)
-        resolve(data.characters.results)
+        const characters = data.characters.results;
+        const locations = data.locations.results;
+        const episodes = data.episodes.results;
+
+        const allData = {characters, locations, episodes}
+        resolve(allData)
     })
 }
 
 getData()
     .then(res =>{
-        setLocalStorage('characters', JSON.stringify(res))
+        setLocalStorage('characters', JSON.stringify(res.characters))
+        setLocalStorage('locations', JSON.stringify(res.locations))
+        setLocalStorage('episodes', JSON.stringify(res.episodes))
     }) 
     .catch(err=> err)
 
-export const localData = () => {
-    const JSONdata = getLocalStorage('characters');
+
+export const localData = (dataType) => {
+    const JSONdata = getLocalStorage(dataType);
     const OBJdata = JSON.parse(JSONdata);
     return OBJdata;
 }

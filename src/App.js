@@ -2,8 +2,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import FavBar from './components/FavBar/FavBar';
 import CardList from './components/Cards/CardList';
 import SideBarContainer from './containers/SideBar/SideBarContainer';
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import SearchBar from './components/SearchBar/SearchBar';
+import { setLocalStorage } from './helpers/storage';
 import './App.css';
 
 function App() {
@@ -17,6 +18,10 @@ function App() {
         if (e.target.value.length >=3) setSearch(search);
     }
 
+    // useEffect (() =>{
+    //     setLocalStorage ('favorites', JSON.stringify(favorites))
+    // }, [])
+
 
     return (
         <BrowserRouter>
@@ -28,24 +33,24 @@ function App() {
             <Switch>
                 <Route exact path='/'>
                     <CardList 
-                      favorites = {favorites}//ok
-                      setFavorites = {setFavorites}//ok
+                      favorites = {favorites}
+                      setFavorites = {setFavorites}
                       search={search}
                       //theme
                     />
                 </Route>
-                {/* <Route exact path='/personajes'>
+                <Route exact path='/personajes'>
                     <h1>Personajes</h1>
-                    <CardContainer path="characters" />
+                    <CardList path="characters" />
                 </Route>
                 <Route exact path='/episodios'>
                     <h1>Episodios</h1>
-                    {/* <CardContainer path='episode' />
+                    <CardList path='episodes' />
                 </Route>
                 <Route exact path='/lugares'>
                     <h1>Lugares</h1>
-                    <CardContainer path="location" /> 
-                </Route> */}
+                    <CardList path="locations" /> 
+                </Route>
             </Switch>
         </BrowserRouter>
       
