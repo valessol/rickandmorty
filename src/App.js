@@ -41,7 +41,10 @@ function App() {
                 </Route>
                 <Route exact path='/personajes'>
                     <h1>Personajes</h1>
-                    <CardList path="characters" />
+                    <CardList 
+                    path="characters"
+                    favorites={favorites}
+                    setFavorites={setFavorites} />
                 </Route>
                 <Route exact path='/episodios'>
                     <h1>Episodios</h1>

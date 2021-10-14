@@ -8,8 +8,8 @@ const CardComponent = ({characters, favorites, setFavorites, id, image, name, ep
 
     const handleAddFavorites = (id) => {
         setItemAdded(!itemAdded)
-        const fav = characters.filter((item)=>item.id === id);
-        setFavorites([fav[0], ...favorites])
+        const fav = characters.find((item)=>item.id === id);
+        setFavorites([fav, ...favorites])
     }
 
     const handleRemoveFavorites = (id) => {

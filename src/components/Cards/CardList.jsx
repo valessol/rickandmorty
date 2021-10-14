@@ -10,12 +10,14 @@ const CardList = ({path, favorites, setFavorites, search}) => {
     useEffect(()=>{
         setLoading(true);
         
-        if (path === 'characters') {
-            const data = localData('characters');
-            setCharacters(data);
-        } else if (favorites && favorites.length !==0 ) {
-            setCharacters(favorites);
-        }
+        // if (path === 'characters') {
+        //     const data = localData('characters');
+        //     setCharacters(data);
+        // } else if (favorites && favorites.length !==0 ) {
+        //     setCharacters(favorites);
+        // }
+        const data = localData('characters');
+        setCharacters(data);
        
         
         //Obtener datos del localStorage
@@ -41,7 +43,7 @@ const CardList = ({path, favorites, setFavorites, search}) => {
         //             } break;
         // }
         setLoading(false)
-    }, [path])
+    }, [])
 
     return (
         <section className="cardContainer">
