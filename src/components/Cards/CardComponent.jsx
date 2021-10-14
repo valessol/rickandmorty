@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Card} from 'react-bootstrap'
+import { BsSuitHeartFill } from 'react-icons/bs'
 import '../../app.scss'
 
 const CardComponent = ({characters, favorites, setFavorites, id, image, name, episode, location}) => { //+theme
@@ -19,8 +20,15 @@ const CardComponent = ({characters, favorites, setFavorites, id, image, name, ep
     }
     
     return (
-        <Card>
-            <Card.Img variant="top" src={image}/>
+        <Card className="cardContainer__box">
+            <Card.Img variant="top" src={image} />
+            <BsSuitHeartFill 
+                className={
+                    !itemAdded
+                    ? "favIndicator"
+                    : "favIndicator favIndicator--active" 
+                } 
+            />
             <Card.Body className="cardContainer__body">
                 <Card.Title className="cardContainer__title">{name}</Card.Title>
                 <Card.Text 
