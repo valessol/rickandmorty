@@ -23,6 +23,9 @@
         height: 100vh;
         position: fixed;
     }
+    &--active {
+        border-bottom: 2px solid $aux-dark-color;
+    }
 }
 svg {
     font-size: 3rem;

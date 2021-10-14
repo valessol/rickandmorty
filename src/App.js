@@ -29,18 +29,36 @@ function App() {
             <FavBar 
                 favorites = {favorites}
             />
-            <SearchBar handleInput={handleInput}/>
+            
             <Switch>
                 <Route exact path='/'>
-                    <CardList 
-                      favorites = {favorites}
-                      setFavorites = {setFavorites}
-                      search={search}
-                      //theme
-                    />
+                {
+                    favorites.length !== 0
+                    ? <>
+                        <h2>Tus favoritos</h2>
+                        <CardList 
+                            favorites = {favorites}
+                            setFavorites = {setFavorites}
+                            search={search}
+                            //theme
+                        />
+                    </>
+                    : <>
+                        <h2>Aún no tienes favoritos. Comienza buscando a tu personaje preferido en la barra de búsqueda, o ve a la sección de personajes</h2>
+                        <SearchBar 
+                            handleInput={handleInput}
+                            placeholder="Busca tu favorito"
+                        />
+                    </>
+                }
+                    
                 </Route>
                 <Route exact path='/personajes'>
                     <h1>Personajes</h1>
+                    <SearchBar 
+                        handleInput={handleInput}
+                        placeholder="Busca tu favorito"
+                    />
                     <CardList 
                     path="characters"
                     favorites={favorites}
@@ -48,10 +66,18 @@ function App() {
                 </Route>
                 <Route exact path='/episodios'>
                     <h1>Episodios</h1>
+                    <SearchBar 
+                        handleInput={handleInput}
+                        placeholder="Busca por episodio"
+                    />
                     <CardList path='episodes' />
                 </Route>
                 <Route exact path='/lugares'>
                     <h1>Lugares</h1>
+                    <SearchBar 
+                        handleInput={handleInput}
+                        placeholder="Busca por lugar"
+                    />
                     <CardList path="locations" /> 
                 </Route>
             </Switch>
