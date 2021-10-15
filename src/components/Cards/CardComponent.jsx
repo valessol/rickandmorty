@@ -3,7 +3,8 @@ import { Button, Card} from 'react-bootstrap'
 import { BsSuitHeartFill } from 'react-icons/bs'
 import '../../app.scss'
 
-const CardComponent = ({characters, favorites, setFavorites, id, image, name, episode, location}) => { //+theme
+
+const CardComponent = ({characters, favorites, setFavorites, setCharacters, id, image, name, episode, location}) => { //+theme
     const [itemAdded, setItemAdded] = useState (false);
 
     const handleAddFavorites = (id) => {
@@ -47,14 +48,15 @@ const CardComponent = ({characters, favorites, setFavorites, id, image, name, ep
                         }
                 </Card.Text>
                 <Button className="button">Ver Detalle</Button>
+                {/* A este button le enlazo el Link que es el que va a recibir el params, o a enviar el params (el id de lo que debe mostrar) mejor dicho al componente app para que el router lo muestre en la vista de detalle */}
                 {
                     !itemAdded
                     ? (
-                        <Button 
-                            className="button button--secondary" 
-                            onClick={()=> handleAddFavorites(id)}
-                        >Agregar a favoritos
-                        </Button>
+                            <Button 
+                                className="button button--secondary" 
+                                onClick={()=> handleAddFavorites(id)}
+                            >Agregar a favoritos
+                            </Button>
                     ) 
                     : (
                         <Button 

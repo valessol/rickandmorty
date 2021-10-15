@@ -9,18 +9,18 @@ import './App.css';
 
 function App() {
     const [favorites, setFavorites] = useState([]);//ok
+    const [storageFav, setStorageFav] = useState ()
     //theme y setTheme + handletheme
     const [search, setSearch] = useState('');
     const width = window.screen.width
 
     const handleInput = (e) => {
-        console.log(e.target.value);
-        if (e.target.value.length >=3) setSearch(search);
+        setSearch(e.target.value);
     }
 
-    // useEffect (() =>{
-    //     setLocalStorage ('favorites', JSON.stringify(favorites))
-    // }, [])
+    useEffect (() =>{
+        setLocalStorage ('favorites', JSON.stringify(favorites))
+    }, [favorites])
 
 
     return (
@@ -32,25 +32,25 @@ function App() {
             
             <Switch>
                 <Route exact path='/'>
-                {
-                    favorites.length !== 0
-                    ? <>
-                        <h2>Tus favoritos</h2>
-                        <CardList 
-                            favorites = {favorites}
-                            setFavorites = {setFavorites}
-                            search={search}
-                            //theme
-                        />
-                    </>
-                    : <>
-                        <h2>Aún no tienes favoritos. Comienza buscando a tu personaje preferido en la barra de búsqueda, o ve a la sección de personajes</h2>
-                        <SearchBar 
-                            handleInput={handleInput}
-                            placeholder="Busca tu favorito"
-                        />
-                    </>
-                }
+                    {
+                        favorites.length !== 0
+                        ? <>
+                            <h2>Tus favoritos</h2>
+                        </>
+                        : <>
+                            <h2>Aún no tienes favoritos. Comienza buscando a tu personaje preferido en la barra de búsqueda, o ve a la sección de personajes</h2>
+                            <SearchBar 
+                                handleInput={handleInput}
+                                placeholder="Busca tu favorito"
+                            />
+                        </>
+                    }
+                    <CardList 
+                        favorites = {favorites}
+                        setFavorites = {setFavorites}
+                        search={search}
+                        //theme
+                    />
                     
                 </Route>
                 <Route exact path='/personajes'>
@@ -60,9 +60,11 @@ function App() {
                         placeholder="Busca tu favorito"
                     />
                     <CardList 
-                    path="characters"
-                    favorites={favorites}
-                    setFavorites={setFavorites} />
+                        path="characters"
+                        favorites={favorites}
+                        setFavorites={setFavorites} 
+                        search={search}
+                    />
                 </Route>
                 <Route exact path='/episodios'>
                     <h1>Episodios</h1>

@@ -8,7 +8,7 @@ const SearchBar = ({placeholder, handleInput}) => {
                 placeholder={placeholder} 
                 onInput={(e)=>{handleInput(e)}}
             />
-            {/* <button className="button button--search">Buscar</button> */}
+            <button className="button button--search">Ver todos</button>
         </div>
     )
 }

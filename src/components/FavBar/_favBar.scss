@@ -20,9 +20,9 @@
         width: 90%;
         text-align: left;
         @include mobile {
-            width: 70%;
+            width: 60%;
             // text-align: left;
-            // margin-right: $spacing;
+            margin-right: $spacing;
         }
     }
     input:focus {
@@ -34,7 +34,7 @@
         margin-top: 1rem;
         @include mobile {
             display: inline-block;
-            width: 100px;
+            width: 150px;
         }
     }
 
