@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { SearchContext } from '../../context/SearchContext'
 
-const SearchBar = ({placeholder, handleInput}) => {
+const SearchBar = ({placeholder}) => {
+    const { handleInput } = useContext(SearchContext)
+
     return (
         <div className="brand">
             <input 

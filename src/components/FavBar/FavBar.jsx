@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {logo} from './logo'
 import { BsSuitHeartFill } from 'react-icons/bs'
 import '../../app.scss'
 import { Link } from 'react-router-dom'
+import { FavContext } from '../../context/FavContext'
 
-const FavBar = ({favorites}) => {
+const FavBar = () => {
+    const { favorites } = useContext(FavContext)
 
     return (
         <>

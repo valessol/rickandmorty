@@ -1,22 +1,20 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, Card} from 'react-bootstrap'
 import { BsSuitHeartFill } from 'react-icons/bs'
 import '../../app.scss'
+import { FavContext } from '../../context/FavContext'
 
 
-const CardComponent = ({characters, favorites, setFavorites, setCharacters, id, image, name, episode, location}) => { //+theme
-    const [itemAdded, setItemAdded] = useState (false);
+const CardComponent = ({characters, id, image, name, episode, location}) => { //+theme
+    const { addFavorites, removeFavorites, itemAddedToFavorites } = useContext(FavContext)
 
     const handleAddFavorites = (id) => {
-        setItemAdded(!itemAdded)
         const fav = characters.find((item)=>item.id === id);
-        setFavorites([fav, ...favorites])
+        addFavorites(fav)
     }
 
     const handleRemoveFavorites = (id) => {
-        const fav = favorites.filter((item)=>item.id !== id);
-        setFavorites(fav)
-        setItemAdded(!itemAdded)
+        removeFavorites(id)
     }
     
     return (
@@ -24,7 +22,7 @@ const CardComponent = ({characters, favorites, setFavorites, setCharacters, id, 
             <Card.Img variant="top" src={image} />
             <BsSuitHeartFill 
                 className={
-                    !itemAdded
+                    !itemAddedToFavorites(id)
                     ? "favIndicator"
                     : "favIndicator favIndicator--active" 
                 } 
@@ -50,7 +48,7 @@ const CardComponent = ({characters, favorites, setFavorites, setCharacters, id, 
                 <Button className="button">Ver Detalle</Button>
                 {/* A este button le enlazo el Link que es el que va a recibir el params, o a enviar el params (el id de lo que debe mostrar) mejor dicho al componente app para que el router lo muestre en la vista de detalle */}
                 {
-                    !itemAdded
+                    !itemAddedToFavorites(id)
                     ? (
                             <Button 
                                 className="button button--secondary" 

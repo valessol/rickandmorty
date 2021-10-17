@@ -1,13 +1,16 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect, useContext} from 'react'
 import { localData } from '../../helpers/getData';
 import CardComponent from './CardComponent'
 import '../../app.scss'
+import { FavContext } from '../../context/FavContext';
+import { SearchContext } from '../../context/SearchContext';
 
-const CardList = ({path, favorites, setFavorites, search, setSearch}) => {
+const CardList = ({path}) => {
     const [characters, setCharacters] = useState([]);
     const [loading, setLoading] = useState(false);
     
-
+    const { favorites } = useContext(FavContext)
+    const { search } = useContext(SearchContext)
     
     useEffect(()=>{
         setLoading(true);
@@ -68,10 +71,6 @@ const CardList = ({path, favorites, setFavorites, search, setSearch}) => {
                                     <CardComponent 
                                         key={characters.id}
                                         characters={characters}
-                                        favorites={favorites}
-                                        setFavorites={setFavorites}
-                                        search={search}
-                                        setCharacters={setCharacters}
                                         {...item} 
                                         //handlefav
                                         //theme
