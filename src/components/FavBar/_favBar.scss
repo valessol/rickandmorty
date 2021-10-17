@@ -18,10 +18,10 @@
         font-weight: 700;
         letter-spacing: 0.1rem;
         width: 90%;
-        text-align: center;
+        text-align: left;
         @include mobile {
             width: 60%;
-            text-align: left;
+            // text-align: left;
             margin-right: $spacing;
         }
     }
@@ -34,7 +34,7 @@
         margin-top: 1rem;
         @include mobile {
             display: inline-block;
-            width: 100px;
+            width: 150px;
         }
     }
 
@@ -53,5 +53,8 @@
         display: flex;
         align-items: center;
         color: $primary-color;
+    }
+    a {
+        text-decoration: none;
     }
 }

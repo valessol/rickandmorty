@@ -1,53 +1,68 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import FavBar from './components/FavBar/FavBar';
-import CardContainer from './containers/Cards/CardContainer';
+import CardList from './components/Cards/CardList';
 import SideBarContainer from './containers/SideBar/SideBarContainer';
 import { useState } from 'react'
 import SearchBar from './components/SearchBar/SearchBar';
 import './App.css';
+import { FavProvider } from './context/FavContext';
+import HomeContainer from './containers/Home/HomeContainer';
+import { SearchProvider } from './context/SearchContext';
 
 function App() {
-    const [favorites, setFavorites] = useState([]);//ok
+    //ok
+    const [storageFav, setStorageFav] = useState ()
     //theme y setTheme + handletheme
-    const [search, setSearch] = useState('');
+
     const width = window.screen.width
 
-    const handleInput = (e) => {
-        console.log(e.target.value);
-        if (e.target.value.length >=3) setSearch(search);
-    }
+    // const handleInput = (e) => {
+    //     setSearch(e.target.value);
+    // }
+
+    // useEffect (() =>{
+    //     setLocalStorage ('favorites', JSON.stringify(favorites))
+    // }, [favorites])
 
 
     return (
-        <BrowserRouter>
-            <SideBarContainer width= {width}/>
-            <FavBar 
-                favorites = {favorites}
-            />
-            <SearchBar handleInput={handleInput}/>
-            <Switch>
-                <Route exact path='/'>
-                    <CardContainer 
-                      favorites = {favorites}//ok
-                      setFavorites = {setFavorites}//ok
-                      search={search}
-                      //theme
-                    />
-                </Route>
-                {/* <Route exact path='/personajes'>
-                    <h1>Personajes</h1>
-                    <CardContainer path="characters" />
-                </Route>
-                <Route exact path='/episodios'>
-                    <h1>Episodios</h1>
-                    {/* <CardContainer path='episode' />
-                </Route>
-                <Route exact path='/lugares'>
-                    <h1>Lugares</h1>
-                    <CardContainer path="location" /> 
-                </Route> */}
-            </Switch>
-        </BrowserRouter>
+        <SearchProvider>
+            <FavProvider>
+                <BrowserRouter>
+
+                    <SideBarContainer width= {width} />
+
+                    <FavBar />
+                    
+                    <Switch>
+
+                        <Route exact path='/'>
+                            <HomeContainer />
+                        </Route>
+
+                        <Route exact path='/personajes'>
+                            <h1>Personajes</h1>
+                            <SearchBar placeholder="Busca tu favorito" />
+                            <CardList path="characters" />
+                        </Route>
+
+                        <Route exact path='/episodios'>
+                            <h1>Episodios</h1>
+                            <SearchBar placeholder="Busca por episodio" />
+                            <CardList path='episodes' />
+                        </Route>
+
+                        <Route exact path='/lugares'>
+                            <h1>Lugares</h1>
+                            <SearchBar placeholder="Busca por lugar" />
+                            <CardList path="locations" /> 
+                        </Route>
+
+                    </Switch>
+
+                </BrowserRouter>
+            </FavProvider>
+        </SearchProvider>
       
     );
 }

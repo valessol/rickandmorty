@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { SearchContext } from '../../context/SearchContext'
 
-const SearchBar = ({handleInput}) => {
+const SearchBar = ({placeholder}) => {
+    const { handleInput } = useContext(SearchContext)
+
     return (
         <div className="brand">
             <input 
                 type="search" 
-                placeholder="Busca tu favorito" 
+                placeholder={placeholder} 
                 onInput={(e)=>{handleInput(e)}}
             />
-            <button className="button button--search">Buscar</button>
+            <button className="button button--search">Ver todos</button>
         </div>
     )
 }

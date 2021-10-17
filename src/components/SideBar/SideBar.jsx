@@ -1,14 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import '../../app.scss'
 
 const SideBar = () => {
     return (
         <nav className="sidebar">
-            <Link to="/">Dashboard</Link>
-            {/* <Link to="/personajes">Personajes</Link>
-            <Link to="/episodios">Episodios</Link>
-            <Link to="/lugares">Lugares</Link> */}
+            <NavLink to="/" exact activeClassName="sidebar--active">Dashboard</NavLink>
+            <NavLink to="/personajes" activeClassName="sidebar--active">Personajes</NavLink>
+            <NavLink to="/episodios" activeClassName="sidebar--active">Episodios</NavLink>
+            <NavLink to="/lugares" activeClassName="sidebar--active">Lugares</NavLink>
         </nav>
     )
 }
