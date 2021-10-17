@@ -6,9 +6,9 @@ const SideBar = () => {
     return (
         <nav className="sidebar">
             <NavLink to="/" exact activeClassName="sidebar--active">Dashboard</NavLink>
-            <NavLink to="/personajes" activeClassName="sidebar--active">Personajes</NavLink>
-            <NavLink to="/episodios" activeClassName="sidebar--active">Episodios</NavLink>
-            <NavLink to="/lugares" activeClassName="sidebar--active">Lugares</NavLink>
+            <NavLink to="/characters" activeClassName="sidebar--active">Personajes</NavLink>
+            <NavLink to="/episodes" activeClassName="sidebar--active">Episodios</NavLink>
+            <NavLink to="/locations" activeClassName="sidebar--active">Lugares</NavLink>
         </nav>
     )
 }

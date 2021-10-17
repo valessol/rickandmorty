@@ -13,7 +13,7 @@ const SideBarContainer = ({width}) => {
     }, [])
 
     return (
-        <div>
+        <div className="layout__sidebar">
             {
                 width<768 
                 ? <BsList />

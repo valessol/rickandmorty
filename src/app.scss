@@ -69,6 +69,25 @@ body {
   }
 }
 
+//------------------------------Layout
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: repeat(2, auto);
+  &__sidebar {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+  }
+  &__favBar {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+  &__main {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+}
+
 @import "./components/Cards/cards";
 @import "./components/SideBar/sidebar";
 @import "./components/FavBar/favBar";

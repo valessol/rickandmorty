@@ -5,7 +5,7 @@ import '../../app.scss'
 import { FavContext } from '../../context/FavContext'
 
 
-const CardComponent = ({characters, id, image, name, episode, location}) => { //+theme
+const CardComponent = ({item}) => { //+theme
     const { addFavorites, removeFavorites, itemAddedToFavorites } = useContext(FavContext)
 
     const handleAddFavorites = (id) => {
@@ -19,16 +19,22 @@ const CardComponent = ({characters, id, image, name, episode, location}) => { //
     
     return (
         <Card className="cardContainer__box">
-            <Card.Img variant="top" src={image} />
-            <BsSuitHeartFill 
-                className={
-                    !itemAddedToFavorites(id)
-                    ? "favIndicator"
-                    : "favIndicator favIndicator--active" 
-                } 
-            />
+            {
+                item.image && 
+                    <>
+                        <Card.Img variant="top" src={item.image} />
+                        <BsSuitHeartFill 
+                            className={
+                                !itemAddedToFavorites(item.id)
+                                ? "favIndicator"
+                                : "favIndicator favIndicator--active" 
+                            } 
+                        />
+                    </>
+            }
+            {/* crear componentes individuales y renderizacion condicional y enviar por parametro la data en cada caso */}
             <Card.Body className="cardContainer__body">
-                <Card.Title className="cardContainer__title">{name}</Card.Title>
+                <Card.Title className="cardContainer__title">{item.name}</Card.Title>
                 <Card.Text 
                     className="cardContainer__text">
                         Ubicación: {

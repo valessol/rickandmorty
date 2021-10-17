@@ -8,7 +8,7 @@ const HomeContainer = () => {
     const { favorites } = useContext(FavContext)
 
     return (
-        <>
+        <main className="layout__main">
             {
                             favorites.length !== 0
                             ? <>
@@ -22,7 +22,7 @@ const HomeContainer = () => {
                         <CardList 
                             //theme
                         />
-        </>
+        </main>
     )
 }
 

@@ -9,7 +9,7 @@ const FavBar = () => {
     const { favorites } = useContext(FavContext)
 
     return (
-        <>
+        <div className="layout__favBar">
             <div className= "brand">
                 <img src= {logo.url} alt='Rick and Morty Wiki' />
             </div>
@@ -27,7 +27,7 @@ const FavBar = () => {
                     </span>
                 </Link>
             </div>
-        </>
+        </div>
         
     )
 }
