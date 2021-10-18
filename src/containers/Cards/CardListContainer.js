@@ -1,7 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { useParams } from 'react-router'
+import CardList from '../../components/Cards/CardList'
+import SearchBar from '../../components/SearchBar/SearchBar'
 import { FavContext } from '../../context/FavContext'
 import { SearchContext } from '../../context/SearchContext'
+import { localData } from '../../helpers/getData'
 
 const CardListContainer = () => {
     const [items, setItems] = useState ([])
@@ -12,7 +15,7 @@ const CardListContainer = () => {
     const { search } = useContext(SearchContext)
 
     const searchData = (data) => {
-        const filterData = data.filter((item)=> item.name.toLowerCase().includes(search.toLowerCase()))
+        const filterData = data.filter((e)=> e.name.toLowerCase().includes(search.toLowerCase()))
         return setItems(filterData)
     }
 
@@ -33,31 +36,33 @@ const CardListContainer = () => {
             if (favorites && favorites.length !== 0) {
                 setItems(favorites)
             } else {
-                setItems(localData('characters'))
+                setItems(localData('characters'))//Pagina 404
             }
         }
     
         setLoading(false)
     }, [path, search, favorites])
 
+    let title, placeholder;
+
     switch (path) {
         case 'characters': 
-            const title = 'Personajes'
-            const placeholder = 'Busca a tu favorito'
+            title = 'Personajes'
+            placeholder = 'Busca a tu favorito'
             break; 
         case 'episodes': 
-            const title = 'Episodios'
-            const placeholder = 'Busca por episodio'
+            title = 'Episodios'
+            placeholder = 'Busca por episodio'
             break;
         case 'locations':
-            const title = 'Lugares'
-            const placeholder = 'Busca por ubicación'
+            title = 'Lugares'
+            placeholder = 'Busca por ubicación'
             break;
         default: 
             if (favorites.length !== 0) {
-                const title = 'Tus favoritos'
+                title = 'Tus favoritos'
             } else {
-                const title = 'Aun no tienes favoritos. Busca por nombre en la barra o dirigete a la pestaña de Personajes para comenzar'
+                title = 'Aun no tienes favoritos. Busca por nombre en la barra o dirigete a la pestaña de Personajes para comenzar'
             } break;
     }
 
@@ -70,7 +75,7 @@ const CardListContainer = () => {
                 : 
                     <>
                         <SearchBar placeholder={placeholder} />
-                        <CardList items={items} />
+                        <CardList items={items} path={path} />
                     </>
             }
             

@@ -5,6 +5,7 @@ import CardList from '../components/Cards/CardList';
 import SideBarContainer from '../containers/SideBar/SideBarContainer';
 import SearchBar from '../components/SearchBar/SearchBar';
 import HomeContainer from '../containers/Home/HomeContainer';
+import CardListContainer from '../containers/Cards/CardListContainer';
 
 
 const Layout = () => {
