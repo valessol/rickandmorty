@@ -39,7 +39,7 @@ const CardListContainer = () => {
                 setItems(localData('characters'))//Pagina 404
             }
         }
-    
+        console.log(path)
         setLoading(false)
     }, [path, search, favorites])
 
@@ -67,7 +67,7 @@ const CardListContainer = () => {
     }
 
     return (
-        <div>
+        <div className="layout__cardList">
             <h1>{title}</h1>
             {
                 loading 

@@ -19,9 +19,9 @@ const Layout = () => {
                     
                     <Switch>
 
-                        {/* <Route exact path='/'>
+                        <Route exact path='/:path'>
                             <HomeContainer />
-                        </Route> */}
+                        </Route>
 
                         {/* <Route exact path='/personajes'>
                             <h1>Personajes</h1>
@@ -29,10 +29,10 @@ const Layout = () => {
                             <CardList path="characters" />
                         </Route> */}
 
-                        <Route exact path='/:path'>
+                        {/* <Route exact path='/:path'>
                             <CardListContainer />
                             
-                        </Route>
+                        </Route> */}
 
                         {/* <Route exact path='/episodios'>
                             <h1>Episodios</h1>

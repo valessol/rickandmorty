@@ -11,7 +11,10 @@
         color: $aux-dark-color;
         margin: $spacing 0;
         &:hover {
-            text-decoration: underline;
+            color: $primary-color;
+        }
+        .sidebar--active {
+            color: $primary-color;
         }
     }
     @include tablet {
@@ -24,7 +27,7 @@
         position: fixed;
     }
     &--active {
-        border-bottom: 2px solid $aux-dark-color;
+        color: $primary-color;
     }
 }
 svg {
