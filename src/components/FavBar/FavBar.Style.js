@@ -1,5 +1,10 @@
 import styled from 'styled-components'
-import { globals, mobile } from './globals'
+import { globals, mobile } from '../../globals.Style'
+
+export const StyledFavBar = styled.div`
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+`
 
 export const Brand = styled.div`
     width: 100%;

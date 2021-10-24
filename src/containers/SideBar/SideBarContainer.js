@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react'
 import { BsList } from "react-icons/bs";
 import SideBar from '../../components/SideBar/SideBar';
+import { StyledSideBar } from './SideBarContainer.Style';
 import '../../app.scss'
 
 
@@ -13,13 +14,13 @@ const SideBarContainer = ({width}) => {
     }, [])
 
     return (
-        <div className="layout__sidebar">
+        <StyledSideBar>
             {
                 width<768 
                 ? <BsList />
                 : <SideBar />
             }
-        </div>
+        </StyledSideBar>
     )
 }
 

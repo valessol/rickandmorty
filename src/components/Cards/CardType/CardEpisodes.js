@@ -1,6 +1,5 @@
 import React from 'react'
-import { StyledButton } from '../../StyledComponents/StyledButton'
-import { StyledCard, StyledCardBody, StyledCardText, StyledCardTitle } from '../../StyledComponents/StyledCard'
+import { StyledCard, StyledCardBody, StyledCardTitle, StyledCardText, StyledButton } from '../Card.Style'
 
 const CardEpisodes = ({id, name, air_date, episode, characters}) => {
     return (

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { globals, mobile } from './globals'
-import { StyledButton } from './StyledButton'
+import { globals, mobile } from '../../globals.Style'
+import { StyledButton } from '../StyledComponents/Button.Style'
 
 export const StyledSearchBar = styled.div`
     width: 100%;

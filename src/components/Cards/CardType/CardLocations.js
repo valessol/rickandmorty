@@ -1,6 +1,5 @@
 import React from 'react'
-import { StyledButton } from '../../StyledComponents/StyledButton'
-import { StyledCard, StyledCardBody, StyledCardText, StyledCardTitle } from '../../StyledComponents/StyledCard'
+import { StyledCard, StyledCardBody, StyledCardTitle, StyledCardText, StyledButton } from '../Card.Style'
 
 const CardLocations = ({id, name, type, residents}) => {
     return (

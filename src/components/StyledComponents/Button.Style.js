@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { globals } from './globals'
+import { globals } from '../../globals.Style'
 import { Button } from 'react-bootstrap'
 
 export const StyledButton = styled(Button)`

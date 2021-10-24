@@ -1,9 +1,7 @@
 import React, { useContext } from 'react'
 import { Card } from 'react-bootstrap';
 import { FavContext } from '../../../context/FavContext';
-import { StyledCard, StyledCardBody, StyledCardText, StyledCardTitle } from '../../StyledComponents/StyledCard';
-import { FavBtn, FavBtnActive } from '../../StyledComponents/FavBtn';
-import { StyledButton } from '../../StyledComponents/StyledButton';
+import { StyledCardBody, StyledCardTitle, StyledCardText, FavBtn, FavBtnActive, StyledButton, StyledCard } from '../Card.Style'
 
 const CardCharacters = ({id, image, name, location, episode }) => {
     const { addFavorites, removeFavorites, itemAddedToFavorites } = useContext(FavContext)
