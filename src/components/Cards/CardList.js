@@ -1,12 +1,13 @@
 import React from 'react'
 import CardComponent from './CardComponent'
 import '../../app.scss'
+import { Section } from '../StyledComponents/Section'
 
 const CardList = ({items, path}) => {
     
     
     return (
-        <section className="cardContainer">
+        <Section >
             {
                     items &&
                     items.map((item) => {
@@ -22,7 +23,7 @@ const CardList = ({items, path}) => {
                         )
                     })
             }   
-        </section>
+        </Section>
     )
 }
 

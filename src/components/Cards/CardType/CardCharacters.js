@@ -1,7 +1,9 @@
 import React, { useContext } from 'react'
-import { Card, Button } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import { FavContext } from '../../../context/FavContext';
-import { BsSuitHeartFill } from 'react-icons/bs'
+import { StyledCard, StyledCardBody, StyledCardText, StyledCardTitle } from '../../StyledComponents/StyledCard';
+import { StyledPrimaryButton, StyledSecondaryButton } from '../../StyledComponents/StyledButton';
+import { FavBtn, FavBtnActive } from '../../StyledComponents/FavBtn';
 
 const CardCharacters = ({id, image, name, location, episode }) => {
     const { addFavorites, removeFavorites, itemAddedToFavorites } = useContext(FavContext)
@@ -24,61 +26,55 @@ const CardCharacters = ({id, image, name, location, episode }) => {
     }
 
     return (
-        <Card className="cardContainer__box">
+        <StyledCard >
 
             <Card.Img variant="top" src={image} />
 
-            <BsSuitHeartFill 
-                className={
-                    !itemAddedToFavorites(id)
-                    ? "favIndicator"
-                    : "favIndicator favIndicator--active" 
-                } 
-            />
+            {
+                !itemAddedToFavorites(id)
+                ? <FavBtn />
+                : <FavBtnActive />
+            } 
             
-            <Card.Body className="cardContainer__body">
+            <StyledCardBody >
 
-                <Card.Title className="cardContainer__title">{name}</Card.Title>
+                <StyledCardTitle >{name}</StyledCardTitle>
 
-                <Card.Text 
-                    className="cardContainer__text">
+                <StyledCardText >
                         Ubicación: {
                             location.name === "Earth (Replacement Dimension)"
                             ? "Earth"
                             : location.name
                         } 
-                </Card.Text>
+                </StyledCardText>
 
-                <Card.Text 
-                    className="cardContainer__text">
+                <StyledCardText >
                         Aparece en {
                             episode.length === 1
                             ? episode.length + ' episodio'
                             : episode.length + ' episodios'
                         }
-                </Card.Text>
+                </StyledCardText>
 
-                <Button className="button">Ver Detalle</Button>
+                <StyledPrimaryButton >Ver Detalle</StyledPrimaryButton>
                 {/* A este button le enlazo el Link que es el que va a recibir el params, o a enviar el params (el id de lo que debe mostrar) mejor dicho al componente app para que el router lo muestre en la vista de detalle */}
                 {
                     !itemAddedToFavorites(id)
                     ? (
-                            <Button 
-                                className="button button--secondary" 
+                            <StyledSecondaryButton 
                                 onClick={()=> handleAddFavorites()}
                             >Agregar a favoritos
-                            </Button>
+                            </StyledSecondaryButton>
                     ) 
                     : (
-                        <Button 
-                            className="button button--secondary" 
+                        <StyledSecondaryButton  
                             onClick={()=> handleRemoveFavorites(id)}
                         >Quitar de favoritos
-                        </Button>
+                        </StyledSecondaryButton>
                     )
                 }
-            </Card.Body>
-        </Card>
+            </StyledCardBody>
+        </StyledCard>
     )
 }
 
