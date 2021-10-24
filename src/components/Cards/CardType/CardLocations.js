@@ -1,22 +1,23 @@
 import React from 'react'
-import { Card, Button } from 'react-bootstrap'
+import { StyledButton } from '../../StyledComponents/StyledButton'
+import { StyledCard, StyledCardBody, StyledCardText, StyledCardTitle } from '../../StyledComponents/StyledCard'
 
 const CardLocations = ({id, name, type, residents}) => {
     return (
-        <Card className="cardContainer__box">
+        <StyledCard>
             
-            <Card.Body className="cardContainer__body">
+            <StyledCardBody>
 
-                <Card.Title className="cardContainer__title">{name}</Card.Title>
+                <StyledCardTitle >{name}</StyledCardTitle>
 
-                <Card.Text className="cardContainer__text">
+                <StyledCardText >
                     Tipo: {type} 
-                </Card.Text>
+                </StyledCardText>
 
-                <Button className="button">Residentes</Button>
+                <StyledButton primary >Residentes</StyledButton>
                 
-            </Card.Body>
-        </Card>
+            </StyledCardBody>
+        </StyledCard>
     )
 }
 

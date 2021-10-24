@@ -2,8 +2,8 @@ import React, { useContext } from 'react'
 import { Card } from 'react-bootstrap';
 import { FavContext } from '../../../context/FavContext';
 import { StyledCard, StyledCardBody, StyledCardText, StyledCardTitle } from '../../StyledComponents/StyledCard';
-import { StyledPrimaryButton, StyledSecondaryButton } from '../../StyledComponents/StyledButton';
 import { FavBtn, FavBtnActive } from '../../StyledComponents/FavBtn';
+import { StyledButton } from '../../StyledComponents/StyledButton';
 
 const CardCharacters = ({id, image, name, location, episode }) => {
     const { addFavorites, removeFavorites, itemAddedToFavorites } = useContext(FavContext)
@@ -56,21 +56,21 @@ const CardCharacters = ({id, image, name, location, episode }) => {
                         }
                 </StyledCardText>
 
-                <StyledPrimaryButton >Ver Detalle</StyledPrimaryButton>
+                <StyledButton primary>Ver Detalle</StyledButton>
                 {/* A este button le enlazo el Link que es el que va a recibir el params, o a enviar el params (el id de lo que debe mostrar) mejor dicho al componente app para que el router lo muestre en la vista de detalle */}
                 {
                     !itemAddedToFavorites(id)
                     ? (
-                            <StyledSecondaryButton 
+                            <StyledButton 
                                 onClick={()=> handleAddFavorites()}
                             >Agregar a favoritos
-                            </StyledSecondaryButton>
+                            </StyledButton>
                     ) 
                     : (
-                        <StyledSecondaryButton  
+                        <StyledButton  
                             onClick={()=> handleRemoveFavorites(id)}
                         >Quitar de favoritos
-                        </StyledSecondaryButton>
+                        </StyledButton>
                     )
                 }
             </StyledCardBody>

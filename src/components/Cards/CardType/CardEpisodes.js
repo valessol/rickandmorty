@@ -1,26 +1,25 @@
 import React from 'react'
-import { Card, Button } from 'react-bootstrap'
+import { StyledButton } from '../../StyledComponents/StyledButton'
+import { StyledCard, StyledCardBody, StyledCardText, StyledCardTitle } from '../../StyledComponents/StyledCard'
 
 const CardEpisodes = ({id, name, air_date, episode, characters}) => {
     return (
-        <Card className="cardContainer__box">
+        <StyledCard>
             
-            <Card.Body className="cardContainer__body">
+            <StyledCardBody >
 
-                <Card.Title className="cardContainer__title">{episode}</Card.Title>
+                <StyledCardTitle>{episode}</StyledCardTitle>
 
-                <Card.Text className="cardContainer__text">
-                    {name}
-                </Card.Text>
+                <StyledCardText>{name}</StyledCardText>
 
-                <Card.Text className="cardContainer__text">
+                <StyledCardText>
                     Fecha de emisión: {air_date} 
-                </Card.Text>
+                </StyledCardText>
 
-                <Button className="button">Personajes</Button>
+                <StyledButton primary>Personajes</StyledButton>
                 
-            </Card.Body>
-        </Card>
+            </StyledCardBody>
+        </StyledCard>
     )
 }
 

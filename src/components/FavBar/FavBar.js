@@ -1,19 +1,19 @@
 import React, { useContext } from 'react'
 import {logo} from './logo'
 import { BsSuitHeartFill } from 'react-icons/bs'
-import '../../app.scss'
 import { Link } from 'react-router-dom'
 import { FavContext } from '../../context/FavContext'
+import { Brand, FavIcon } from '../StyledComponents/StyledFavBar'
 
 const FavBar = () => {
     const { favorites } = useContext(FavContext)
 
     return (
         <div className="layout__favBar">
-            <div className= "brand">
+            <Brand>
                 <img src= {logo.url} alt='Rick and Morty Wiki' />
-            </div>
-            <div className="favorites">
+            </Brand>
+            <FavIcon>
                 <Link to="/">
                     <span>
                         {
@@ -26,7 +26,7 @@ const FavBar = () => {
                         <BsSuitHeartFill />
                     </span>
                 </Link>
-            </div>
+            </FavIcon>
         </div>
         
     )
