@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { FavContext } from '../../../context/FavContext';
 import { StyledCardBody, StyledCardTitle, StyledCardText, FavBtn, FavBtnActive, StyledButton, StyledCard } from '../Card.Style'
 
@@ -54,7 +55,9 @@ const CardCharacters = ({id, image, name, location, episode }) => {
                         }
                 </StyledCardText>
 
-                <StyledButton primary>Ver Detalle</StyledButton>
+                <Link to={`/personajes/${id}`} >
+                    <StyledButton primary id={id}>Ver Detalle</StyledButton>
+                </Link>
                 {/* A este button le enlazo el Link que es el que va a recibir el params, o a enviar el params (el id de lo que debe mostrar) mejor dicho al componente app para que el router lo muestre en la vista de detalle */}
                 {
                     !itemAddedToFavorites(id)
