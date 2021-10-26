@@ -15,7 +15,7 @@ const CardEpisodes = ({id, name, air_date, episode, characters}) => {
                     Fecha de emisión: {air_date} 
                 </StyledCardText>
 
-                <StyledButton primary>Personajes</StyledButton>
+                <StyledButton primary>Ver más</StyledButton>
                 
             </StyledCardBody>
         </StyledCard>

@@ -31,8 +31,9 @@ export const StyledCardText = styled(Card.Text)`
 
 export const FavBtn = styled(BsSuitHeartFill)`
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 1rem;
+    right: 1rem;
+    font-size: 3rem;
     color: ${globals.primaryColor};
     opacity: 0;
 `
@@ -60,9 +61,9 @@ export const StyledButton = styled(Button)`
     border: ${props => props.primary ? 'none' : `1px solid ${globals.tertiaryColor}`};
     border-radius: 0.5rem;
     display: block;
-    margin: ${globals.spacing} * 2 auto;
+    margin: 2rem auto;
     width: 90%;
-    padding: ${globals.spacing}/2;
+    padding: 1rem;
     font-family: ${globals.primaryFont};
     font-size: 1.8rem;
     font-weight: 700;

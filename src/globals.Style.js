@@ -19,6 +19,8 @@ export const tablet = `@media (min-width: 768px)`;
 //Estilos globales
 export const GlobalStyle = createGlobalStyle`
     html {
+        margin: 0;
+        padding: 0;
         font-size: 62.5%;
         box-sizing: border-box;
     }
@@ -34,5 +36,9 @@ export const GlobalStyle = createGlobalStyle`
 
     h1, h2 {
         text-align: center;
+    }
+
+    a {
+        text-decoration: none;
     }
 `

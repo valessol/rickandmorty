@@ -18,8 +18,8 @@ export const Nav = styled.nav`
     }
     ${tablet} {
         display: block;
-        padding: ${globals.spacing}*2;
-        padding-top: ${globals.spacing}*5;
+        padding: 2rem;
+        padding-top: 5rem;
         background-color: ${globals.tertiaryColor};
         width: 20%;
         height: 100vh;

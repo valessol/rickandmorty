@@ -22,11 +22,14 @@ export const FavIcon = styled.div`
     position: absolute;
     top: 1rem;
     right: 1rem;
+    height: 3rem;
+    width: 5rem;
     span {
         font-weight: 700;
-        font-size: 2rem;
+        font-size: 3rem;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         color: ${globals.primaryColor};
     }
     a {
