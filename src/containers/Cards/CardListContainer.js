@@ -1,7 +1,9 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import CardList from '../../components/Cards/CardList'
+import Pagination from '../../components/Pagination/Pagination'
 import SearchBar from '../../components/SearchBar/SearchBar'
+import { StyledButton } from '../../components/StyledComponents/Button.Style'
 import { FavContext } from '../../context/FavContext'
 import { SearchContext } from '../../context/SearchContext'
 import { localData } from '../../helpers/getData'
@@ -78,6 +80,7 @@ const CardListContainer = () => {
                         <CardList items={items} path={path} />
                     </>
             }
+            <Pagination label={'Anterior'} />
             
         </div>
     )
